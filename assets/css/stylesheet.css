@@ -11,6 +11,15 @@ img {
   width: 400px;
   margin: auto;
 }
+
+a {
+  text-decoration: none;
+
+}
+
+#cv-container {
+  text-align: center;
+}
 #contact {
   min-width: 300px;
   max-width: 400px;
