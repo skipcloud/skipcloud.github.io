@@ -1,0 +1,25 @@
+body {
+  font-family: 'Space Mono', monospace;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  display: block;
+  width: 400px;
+  margin: auto;
+}
+#contact {
+  width: 400px;
+  margin: auto;
+}
+
+.contact-info {
+  float: right;
+}
+
+.contact-type {
+  
+}
