@@ -1,17 +1,18 @@
 body {
   font-family: 'Space Mono', monospace;
   background-color: #e2e2e2;
-}
-
-#main-container {
   max-width: 900px;
   min-width: 850px;
   margin: auto;
+}
+
+#main-container {
   overflow: auto;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 img {
