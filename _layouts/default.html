@@ -8,6 +8,9 @@
   </head>
   <body>
     {% include header.html %}
+    {% if page.h1 %}
+      <h1>{{ page.h1 }}</h1>
+    {% endif %}
     <div id="main-container">
       {{ content  }}
     </div>
