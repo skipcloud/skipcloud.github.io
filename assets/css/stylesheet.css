@@ -2,6 +2,12 @@ body {
   font-family: 'Space Mono', monospace;
 }
 
+#main-container {
+  max-width: 900px;
+  min-width: 550px;
+  margin: auto;
+}
+
 h1 {
   text-align: center;
 }
