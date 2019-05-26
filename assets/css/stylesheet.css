@@ -1,11 +1,13 @@
 body {
   font-family: 'Space Mono', monospace;
+  background-color: #e2e2e2;
 }
 
 #main-container {
   max-width: 900px;
-  min-width: 550px;
+  min-width: 850px;
   margin: auto;
+  overflow: auto;
 }
 
 h1 {
@@ -16,6 +18,8 @@ img {
   display: block;
   width: 400px;
   margin: auto;
+  border-radius: 5px;
+  float: left;
 }
 
 a {
@@ -26,14 +30,25 @@ a {
 #cv-container {
   text-align: center;
 }
-#contact {
+
+#about-container {
   min-width: 300px;
   max-width: 400px;
   margin: auto;
+  float: right;
+  overflow: hidden;
+}
+
+#about {
+  text-align: right;
+}
+
+#contact {
+  float: right;
+  width: 100%;
 }
 
 .contact-info {
   float: right;
 }
 
-  
