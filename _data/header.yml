@@ -1,0 +1,6 @@
+- name: home
+  url: /
+- name: cv
+  url: /cv.html
+- name: music
+  url: https://skipcloud.bandcamp.com/ 

@@ -1,7 +1,10 @@
 <header>
   <nav>
-    <a href="/">home</a> / 
-    <a href="/cv.html">cv</a> /
-    <a href="https://skipcloud.bandcamp.com/">music</a>
+    {% for item in site.data.header %}
+      <a href="{{ item.url }}"{% if page.url == item.url %} style="border-bottom: 1px solid black;" {% endif %}>{{ item.name }}</a>
+      {% if forloop.last == false %}
+        \
+      {% endif %}
+    {% endfor %}
   </nav>
 </header>
