@@ -2,7 +2,7 @@
 layout: post
 title: "First post"
 date:  2020-02-08 09:12:58 +00:00
-categories: deliveroo
+categories: deliveroo git
 ---
 
 Hi! Before getting into explaining what this blog is going to be about I feel
