@@ -51,5 +51,5 @@ gotchu
 ct-1234: WIP dear god please work
 ct-1234: download extra RAM
 ct-1234: add artificial sleep to make it look like service is doing work
-ct-1234: hidden cat gif in the codebase
+ct-1234: hide cat gif in the codebase
 ```
