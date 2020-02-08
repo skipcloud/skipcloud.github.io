@@ -30,10 +30,29 @@ a {
   color: #FF40B3;
 }
 
-#cv-container {
+blockquote {
+  font-style: italic;
+}
+
+/* code, .highlighter-rouge { */
+/*   background-color: #d2d2d2; */
+/* } */
+
+#blog-container {
   text-align: center;
 }
 
+#blog-container ul {
+  list-style: none;
+}
+
+#post-container {
+  list-style: none;
+}
+
+#post-footer {
+  margin-bottom: 30px;
+}
 #about-container {
   position: absolute;
   min-width: 300px;
