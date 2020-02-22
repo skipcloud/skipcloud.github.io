@@ -2,7 +2,8 @@
 layout: post
 title: "re: git rerere"
 date: 2020-02-16 07:31:07+00:00
-categories: git
+categories: [tips]
+tags: [git]
 ---
 
 Have you ever tried to merge two branches only to end up in conflict hell? You
