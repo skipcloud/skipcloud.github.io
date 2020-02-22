@@ -2,7 +2,8 @@
 layout: post
 title: "git add --patch"
 date: 2020-02-16 07:31:07+00:00
-categories: git
+categories: [tips]
+tags: [git]
 ---
 
 A few posts ago I introduced `git commit --fixup` to help you better organise

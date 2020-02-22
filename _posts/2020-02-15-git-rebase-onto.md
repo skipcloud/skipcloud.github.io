@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Git rebase --onto"
+title: "git rebase --onto"
 date: 2020-02-15 06:53:21+00:00
-categories: git
+categories: [tips]
+tags: [git]
 ---
 
 Have you ever branched off what you thought was master, done a bunch of work, only to then realise that you actually branched off staging, or some other branch? I have done that a few times and it's mighty annoying. I used to just created a new branch and cherry-picked the commits from my failed branch. As is always the case with git, there is a command to fix this scenario.
