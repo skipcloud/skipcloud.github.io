@@ -39,13 +39,16 @@ code, .highlighter-rouge {
 }
 
 #blog-container {
-  text-align: center;
+  text-align: left;
 }
 
-#blog-container ul {
+ul {
   list-style: none;
 }
 
+.latest-blog-title {
+  border-bottom: 1px solid black;
+}
 #post-container {
   list-style: none;
 }
@@ -56,7 +59,7 @@ code, .highlighter-rouge {
 #about-container {
   position: absolute;
   min-width: 300px;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
   right: 0;
   height: 100%;
