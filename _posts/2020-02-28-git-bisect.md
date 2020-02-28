@@ -76,12 +76,12 @@ Database indexes also work in a similar fashion.
 ## Big O
 
 Binary search has a [big O](https://en.wikipedia.org/wiki/Big_O_notation) of
-O(log n) on average which means it's quick. In our number example we found our
+O(log₂n) on average which means it's quick. In our number example we found our
 element in 3 iterations which was pretty good but with even bigger numbers the
 efficiency of this algorithm really shines through.
 
-If we have a list of 1,000,000,000 items it will take just 9 iterations to find
-what we are looking for. Fire a few more zeros on there and it takes 12
+If we have a list of 1,000,000,000 items it will take just 29 iterations to find
+what we are looking for. Fire a few more zeros on there and it takes 39
 iterations to find an item in a list of 1,000,000,000,000 elements.
 
 ## Back to git
