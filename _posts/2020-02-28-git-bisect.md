@@ -87,7 +87,7 @@ iterations to find an item in a list of 1,000,000,000,000 elements.
 ## Back to git
 
 Now you know the power of binary search you can understand how the tool does was
-it does. It will help you (very quickly) hone in the commit that has disrupted
+it does. It will help you to (very quickly) hone in on the commit that has disrupted
 your work flow allowing you to publicly flog whoever authored the commit, but
 let's be honest it was probably you anyway.
 
