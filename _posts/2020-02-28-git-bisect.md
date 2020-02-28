@@ -21,7 +21,7 @@ pages say about `git bisect`:
 Yes, it is this simple.
 
 If you are like me and you didn't study computer science at university you might
-not know what a binary search, and that's fine. We can't know everything. I feel
+not know what binary search is, and that's fine. We can't know everything. I feel
 it would be good to get you quickly up to speed on what binary search is before
 talking about `git bisect`.
 
