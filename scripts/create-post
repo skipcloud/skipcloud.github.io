@@ -1,0 +1,34 @@
+#!/bin/sh -
+#
+# create a new post
+
+if [ -z "$1" ]; then
+  echo "missing post name" >&2
+  exit 1
+fi
+
+postname=
+for i in "$@"; do
+  postname+="-$i"
+done
+file="_posts/$(date +%F)${postname}.md"
+
+
+if [ -e $file ]; then
+  echo "file \"$file\" already exists" >&2
+  exit 1
+fi
+
+template=$(cat <<EOF
+---
+layout: post
+title: ????
+date: DATE
+categories: []
+tags: []
+---
+EOF
+)
+
+echo "$template" | sed -e "s/DATE/$(date --rfc-3339=seconds)/" > $file
+echo "file create: $file"
