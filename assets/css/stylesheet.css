@@ -25,6 +25,12 @@ img#ugh {
   float: left;
 }
 
+.blog-image {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  max-width:800px;
+}
 a {
   text-decoration: none;
   color: #FF40B3;
