@@ -61,7 +61,7 @@ would attach the permissions policy to.
 
 <img src="/assets/img/iam-users.png" class="blog-image" />
 
-After clicking on the "Add User" button, gave it a name and select the option
+After clicking on the "Add User" button, give it a name and select the option
 which states this user will be for "programmatic access" AKA this user will be
 accessing things through the AWS CLI.
 
@@ -89,19 +89,20 @@ policies to use but let's create a new one.
 <img src="/assets/img/iam-create-group.png" class="blog-image" />
 
 The "Create policy" button opens up a new tab with a policy editor, if you're
-insane you can write your own policy JSON from hand, or you could just use the
+insane you can write your own policy JSON by hand, or you could just use the
 visual editor.
 
 <img src="/assets/img/iam-create-policy.png" class="blog-image" />
 
 Selecting the service you want (EC2) you can set which actions are allowed on this
 policy, I know I will want to `StopInstances`, `StartInstances`, as well as
-`DescribeInstances` so using the search bar in the actions section I select the
-actions.
+`DescribeInstances` so using the search bar in the actions section I select
+those actions.
 
 The last thing you need is which ARN (Amazon Resource Name) you want this policy
 to affect. You could let this policy affect every instance you've got but I
-decided to click "Add ARN" to limit it to the VPN instance.
+decided to click "Add ARN" to limit it to the VPN instance. It's better to limit
+the scope of policies anyway.
 
 <img src="/assets/img/iam-add-arn.png" class="blog-image" />
 
@@ -173,8 +174,8 @@ information about your instance.
 The only other thing needed for [my
 script](https://github.com/skipcloud/ec2-vpn) to work is the `ovpn` file that
 was generated when setting up the EC2 instance. The script takes the `ovpn` file
-and generates a template it can use to create a working `ovpn` file and connect
-to the EC2 instance with OpenVPN.
+and generates a template it can use to create a working `ovpn` file with the new
+public IP address of your instance and connect to the instance with OpenVPN.
 
 The README has all the details to help you get things set up.
 
@@ -187,12 +188,12 @@ use of `jq` to handle parsing the JSON and of course `OpnVPN` is used to connect
 to the instance.
 
 To start, the script needs to know the instance ID of the VPN, running `ec2-vpn
-update <instance-id>` which will pull down information for that instance and
-store it in a dot file. This file is then referenced by all the other commands,
-running `ec2-vpn update` without the ID will pull information on the instance in
-the dot file created before. If you want to use another instance later just run
-the update command again with the new instance ID to start using the new
-instance instead.
+update <instance-id>` will pull down information for that instance and store it
+in a dot file for later use. This file is then referenced by all the other
+commands, running `ec2-vpn update` without the ID will pull information on the
+instance it finds in the dot file created before. If you want to use another instance
+later just run the update command again with the new instance ID to start using
+the new instance instead.
 
 Now, instead of having to leave my terminal to spin up my EC2 instance I just
 need to run this command `ec2-vpn start`, and the script does all the work for
@@ -228,3 +229,17 @@ I've highlighted `^C` so you can see that's exactly what I've done here.
 So there we have it, a script that admittedly requires a bit of set up but one
 that takes all the hassle out of spinning up your EC2 instance and connecting to
 it.
+
+Without this script I would need to:
+
+- Log into AWS
+- Navigate to the EC2 panel
+- Start our instance
+- Take the new public IP and insert it into the `ovpn` file
+- Connect to the instance with `openvpn`
+- Do some browsing
+- Go back to AWS to stop the instance when I am done
+
+Then repeat the above any time I want to use my VPN.
+
+Fuck that.
