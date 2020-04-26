@@ -22,7 +22,7 @@ fi
 template=$(cat <<EOF
 ---
 layout: post
-title: ????
+title: TITLE
 date: DATE
 categories: []
 tags: []
@@ -30,5 +30,5 @@ tags: []
 EOF
 )
 
-echo "$template" | sed -e "s/DATE/$(date --rfc-3339=seconds)/" > $file
+echo "$template" | sed -e "s/DATE/$(date --rfc-3339=seconds)/" -e "s/TITLE/$(echo $@)/" > $file
 echo "file create: $file"
