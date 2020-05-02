@@ -48,13 +48,18 @@ blockquote {
   font-style: italic;
 }
 
+.highlight pre {
+  overflow: auto;
+  margin: 0;
+  padding: 5px;
+}
+
 pre code {
   color: white;
 }
 
 p code, .highlighter-rouge {
   background-color: #f5f5f5;
-  /* color: #028F12; */
 }
 
 #blog-container {
