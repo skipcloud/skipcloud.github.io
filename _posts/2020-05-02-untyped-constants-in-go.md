@@ -2,7 +2,7 @@
 layout: post
 title: Untyped Constants In Go
 date: 2020-05-02 07:37:39+01:00
-categories: [blog]
+category: blog
 tags: [Go]
 ---
 
