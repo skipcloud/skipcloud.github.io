@@ -46,7 +46,7 @@ small one for you:
 Can't remember what you did yesterday and stand up is a few minutes away? I
 gotchu
 
-```
+```sh
 > git log --author=$USER --since='9am yesterday' --format='%s'
 
 ct-1234: WIP dear god please work
