@@ -4,8 +4,9 @@ permalink: /blog.html
 h1: blog
 ---
 <div id="blog-container">
+  {% include search.html %}
   <p>Words and such that people who write software can relate to.</p>
-  <p>Check out the <a href="{{ site.baseurl}}/blog/index.html">blog index</a> or <a href="{{ site.baseurl }}/categories">categories</a> if you're looking for something inparticular, otherwise...</p>
+  <p>Check out the <a href="{{ site.baseurl}}/blog/index.html">blog index</a> if you're looking for something inparticular, otherwise...</p>
   <h2>latest posts</h2>
     {% for post in site.posts limit:15 %}
       <div>
