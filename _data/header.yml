@@ -1,6 +1,6 @@
 - name: home
   url: /
 - name: blog
-  url: /blog.html
+  url: /blog
 - name: music
   url: https://skipcloud.bandcamp.com/ 
