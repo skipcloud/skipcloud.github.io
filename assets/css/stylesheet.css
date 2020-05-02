@@ -105,3 +105,13 @@ ul {
   float: right;
 }
 
+#search-container {
+  float: right;
+}
+
+#results-container {
+  padding: 0px;
+  height: 150px;
+  overflow: auto;
+}
+

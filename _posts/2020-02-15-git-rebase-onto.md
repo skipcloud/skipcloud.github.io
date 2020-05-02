@@ -2,7 +2,7 @@
 layout: post
 title: "git rebase --onto"
 date: 2020-02-15 06:53:21+00:00
-categories: [tips]
+category: tips
 tags: [git]
 ---
 

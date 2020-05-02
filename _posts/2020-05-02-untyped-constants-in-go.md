@@ -2,7 +2,7 @@
 layout: post
 title: Untyped Constants In Go
 date: 2020-05-02 07:37:39+01:00
-categories: [blog]
+category: blog
 tags: [Go]
 ---
 
@@ -184,7 +184,7 @@ order bits just get lopped off and you are left with this:
 
 Which equals `1`.
 
-### conclusion
+## conclusion
 
 Coming to a statically typed language from something like Ruby takes some
 getting used to, it can feel incredibly restrictive, I know I struggled a lot
