@@ -184,7 +184,7 @@ order bits just get lopped off and you are left with this:
 
 Which equals `1`.
 
-### conclusion
+## conclusion
 
 Coming to a statically typed language from something like Ruby takes some
 getting used to, it can feel incredibly restrictive, I know I struggled a lot
