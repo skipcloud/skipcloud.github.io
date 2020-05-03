@@ -123,9 +123,15 @@ custom type `Duration` and `time.Second` is of type `time.Duration`.
 change the parameter value's type to `int64` we would still run into the same
 problem.
 
-Trying to use operands of two differing types like this is not allowed, but
-knowing it's a type problem you have two ways you can get around it. You could
-either change the parameter type in the original function to `time.Duration`:
+The second example works precisely because `3` is an untyped constant
+expression, in situations like this the compiler sees `time.Second * 3` and it
+knows the underlying type of `time.Second` is something `3` can be cast to. The
+compiler does its thing and you don't need to worry.
+
+Back to the first example, trying to use operands of two differing types like
+this is not allowed, but knowing it's a type problem you have two ways you can
+get around it. You could either change the parameter type in the original
+function to `time.Duration`:
 
 ```go
 func main() {
