@@ -86,12 +86,18 @@ Although constants have their own default type you can set a type for a constant
 as long as it makes sense to do so.
 
 ```go
+type MyInt int16
+
 var i int64 = 3.0
 var j float32 = 7
+var k MyInt = 9
 ```
 
-Both of the above are perfectly legal, `i` is of type `int64` and holds the value
-`3` and `j` is of type `float32` and holds the value `7.0`.
+All of the above are perfectly legal, `i` is of type `int64` and holds the value
+`3`, `j` is of type `float32` and holds the value `7.0`, and `k` is of type
+`MyInt` and holds the value `9`. The last example there works because `MyInt`
+has an underlying type `int16` that makes sense with an integer constant. Trying
+to set `k` to something like a `bool` would not compile.
 
 ## watch you don't trip
 
