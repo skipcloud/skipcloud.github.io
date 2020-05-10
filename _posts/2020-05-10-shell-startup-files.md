@@ -130,7 +130,7 @@ As previously mentioned you can get a `login` shell by using SSH or `su - <user>
 to login as a user, you can also get a `login` shell by passing the option
 `--login` when you start a shell, i.e. `/bin/bash --login`.
 
-I added some lines to `/etc/profile` and `~/.bash_profile` to show the other
+I added some lines to `/etc/profile` and `~/.bash_profile` to show the order
 they are read. I also created `~/.bash_login` and `~/.profile` files to
 demonstrate they aren't read.
 
@@ -173,12 +173,11 @@ hi from /home/skip/.bash_logout
 
 ### interactive non-login files
 
-This shell is one you would usually find yourself in, when you're logged in and
-starting new shell sessions you get an `interactive non-login` session. This is
-the session where the `~/.bashrc` is read. Side note for curious people like me,
-the `rc` in `bashrc` stands for "run command", you can have that fact for free.
-When you normally start your terminal you would get this sort of shell, or if
-you call `/bin/bash` without any arguments.
+When you're already logged in and you start a new shell session you get an
+`interactive non-login` session. This is the session where `~/.bashrc` is
+read. Side note for curious people like me, the `rc` in `bashrc` stands for "run
+command", you can have that fact for free.  You can also call `/bin/bash` without
+any arguments.
 
 ```
 $ /bin/bash   # already logged in but let's start a new shell
@@ -227,7 +226,7 @@ files `zsh` uses:
 * `$ZDOTDIR/.zlogin`
 * `$ZDOTDIR/.zlogout`
 
-If `$ZDOTDIR` isn't set then `$HOME` is, there are also `/etc/zsh/...`
+If `$ZDOTDIR` isn't set then `$HOME` is used, there are also `/etc/zsh/...`
 equivalents of all of the above files that are read before your personal files.
 As before I have added some echo lines to the various files so when I can start
 some shells and you can see the source order.
@@ -341,9 +340,9 @@ it in `~/.bash_logout` or `~/.zlogout`.
 ### setting the environment
 
 This section really depends on what shell you are using. If you are using `zsh`
-then the `~/.zshenv` is run for every file, so put commands that set environment
+then `~/.zshenv` is run for every file, so put commands that set environment
 variables like `PATH` in that file. Commands that produce output shouldn't go in
-here.
+this file.
 
 If you are using `bash` then you can set `BASH_ENV` so your environment is set
 up correctly for non-interactive shells, otherwise for your interactive shells
@@ -357,7 +356,7 @@ The thing that made me want to write this post was seeing so many people just
 putting everything in their `~/.bash_profile` files. I see it in READMEs all the
 time, "add this line to your .bash_profile", given what I've just explained I
 hope you can see why this is incorrect. `~/.bash_profile` isn't sourced for the
-majority of shells that you run, that job falls to `~/.bashrc`.
+majority of shells that you will find yourself in, that job falls to `~/.bashrc`.
 
 When it comes to `bash`, because there isn't a clear separation of concerns like
 with `zsh` and its startup files I tend to keep everything in my `~/.bashrc` file.
@@ -366,7 +365,7 @@ Then I just source my `~/.bashrc` in `~/.bash_profile`, here is my entire
 `~/.bash_profile` file.
 
 ```bash
-[ -e $HOME/.bashrc ] && source ~/.bashrc
+[ -e $HOME/.bashrc ] && source $HOME/.bashrc
 ```
 
 This way if I login via SSH or by using `su - skip` I will have my shell set up
@@ -384,6 +383,7 @@ can use both interactive login and non-login bash shells. I then keep `zsh`
 specific set up in my `~/.zshrc` and `~/.zshenv` files, remember that `zsh`
 sources these two files for both interactive login and non-login shells. I put
 all remaining `zsh` set up in `~/.zshrc`, for example all of the `oh-my-zsh`
-related commands goes in there. I then have a line at the end of my `~/.zshrc`
-file sourcing my `~/.bashrc` file so I have all of my aliases. Simple.
+related commands go in there. And finally I have a line at the end of my
+`~/.zshrc` file sourcing my `~/.bashrc` file so I have all of my aliases.
+Simple.
 
