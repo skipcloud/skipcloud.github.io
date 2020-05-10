@@ -228,8 +228,8 @@ files `zsh` uses:
 
 If `$ZDOTDIR` isn't set then `$HOME` is used, there are also `/etc/zsh/...`
 equivalents of all of the above files that are read before your personal files.
-As before I have added some echo lines to the various files so when I can start
-some shells and you can see the source order.
+As before I have added some echo lines to the various files so when I start some
+shells you can see the order the files are sourced.
 
 ### .zshenv
 
@@ -272,11 +272,11 @@ hi from /home/skip/.zshrc
 ### .zlogin and .zprofile
 
 `~/.zlogin` is sourced for login shells, I think that much is obvious. There is
-also a `~/.zprofile` file but, unlike `bash`,  `zsh` doesn't stop looking when it
-finds the `~/.zlogin` file. It reads that file first then runs the `~/.zprofile`
-before the `~/.zshrc` file, however the `~/.zlogin` and the `~/.zprofile` files
-aren't intended to be used together, `~/.zprofile` was meant as an alternative
-to `~/.zlogin` for people used to `ksh`.
+also a `~/.zprofile` file but, unlike `bash`,  `zsh` doesn't stop looking when
+it finds the `~/.zlogin` file. It reads that file first then runs the
+`~/.zprofile` before running the `~/.zshrc` file, however the `~/.zlogin` and
+the `~/.zprofile` files aren't intended to be used together, `~/.zprofile` was
+meant as an alternative to `~/.zlogin` for people used to `ksh`.
 
 ```
 $ zsh           # interactive non-login shell
