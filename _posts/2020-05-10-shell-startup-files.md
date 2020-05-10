@@ -12,6 +12,14 @@ their liking.  Sure every time you open your terminal you could spend time
 creating aliases, setting environment variables, adding things to your `PS1`
 prompt until your terminal is 90% prompt, but that's just not practical.
 
+What makes more sense is having a file that you could put commands in to
+customise your shell, then have the shell read that file during start up. These
+kinds of files are commonly referred to as "dot files" because they append a `.`
+to the start of the name to hide the file, many programs have their own dot
+files. Vim has `~/.vimrc`, pry has `~/.pryrc`, and bash has `~/.bashrc`. Bash
+actually has many other dot files that it uses, for example `~/.bash_login` and
+`~/.bash_profile`.
+
 All shells have some sort of startup process where it will read certain dot
 files in a particular order depending on what sort of shell you're starting. I
 wanted to create a post to explain what these different files are because for
