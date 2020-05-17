@@ -296,8 +296,7 @@ skip.singleton_class.singleton_class.singleton_class
 
 ## in a nut shell
 
-I hope that little journey through the Ruby Object Model has been helpful and
-eye opening for you. Here is a summary of everything that I just said, and if
+Here is a summary of everything that I just said, and if
 you understand this then you are golden.
 
 > The superclass of the singleton class of an object is the object's class. The
@@ -352,7 +351,8 @@ Here is one such diagram that I've found online
 
 <img src="/assets/img/2020-05-17/object-model.png" class="blog-image"/>
 
-There is still more out there for you to learn but everything I've mentioned in
-this post will be more than enough for you to have a working knowledge of ruby's
-object model.
+I hope that little journey through the Ruby Object Model has been helpful and
+eye opening for you. There is still more out there for you to learn but
+everything I've mentioned in this post will be more than enough for you to have
+a working knowledge of ruby's object model.
 
