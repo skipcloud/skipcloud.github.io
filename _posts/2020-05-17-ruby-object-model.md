@@ -337,15 +337,15 @@ information like every class's class is `Class`.
 
 ```ruby
 Person.class
-=> Class
+# => Class
 Person.class.class
-=> Class
+# => Class
 Person.class.superclass
-=> Module
+# => Module
 Person.class.superclass.class
-=> Class
+# => Class
 Person.class.superclass.superclass
-=> Object
+# => Object
 ```
 
 Here is one such diagram that I've found online
