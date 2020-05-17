@@ -82,7 +82,7 @@ ul {
 }
 #about-container {
   position: absolute;
-  min-width: 300px;
+  min-width: 400px;
   max-width: 500px;
   margin: auto;
   right: 0;
