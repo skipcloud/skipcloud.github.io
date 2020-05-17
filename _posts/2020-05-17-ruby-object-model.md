@@ -333,7 +333,7 @@ And here is a visual representation of that hierarchy
 
 My explanation in this post about the Ruby Object Model has been a simplified
 one, there are more complex diagrams out there which reveal some more fun
-information like every class's class is `Class`.
+information like every class's class is `Class` (yes, even `Class`'s class is `Class`).
 
 ```ruby
 Person.class
