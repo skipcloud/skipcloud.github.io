@@ -146,8 +146,8 @@ to you. In fact, just looking at it it's not entirely clear where the method
 ends up being defined.
 
 Based off what I've said so far and how ruby looks up methods, that method
-should live somewhere in the class or classes superclass, but a quick check
-`Person` shows it is nowhere to be seen.
+should live somewhere in the class or classes superclass, but a quick check in
+`Person` shows the method is nowhere to be seen.
 
 ```ruby
 Person.instance_methods(false)
@@ -181,11 +181,15 @@ skip.meep
 # => "Oops, no method meep"
 ```
 
-This trick of overriding the `method_missing` is used a lot by [Ruby on
+"Eigen" in german means "own", so you can think of a singleton class
+(eigenclass) as a class that only the object in question has access to. It is
+its own class, completely separate from the object's parent class.
+
+The trick of overriding the `method_missing` is used a lot by [Ruby on
 Rails](https://rubyonrails.org/) and also by
-[Hashie::Mash](https://github.com/hashie/hashie#mash) to name but a few
-examples. This one little trick opens up a whole world of possibility for
-metaprogramming.
+[Hashie::Mash](https://github.com/hashie/hashie#mash), to name but a few
+examples, in order to do some pretty cool things. This one little trick opens up
+a whole world of possibility for metaprogramming.
 
 ## class methods
 
@@ -207,9 +211,9 @@ Person.hiya
 
 That to me looks an awful lot like a class method...in fact that's precisely
 what it is. A class method is just a method that lives in a class's singleton
-class.  This revelation throws our method lookup and my diagrams and out of
-whack though, if you glance back you can see there isn't anything to the right
-of a class to check.
+class.  This revelation throws our current understanding of method lookup and my
+diagrams out of whack though, if you glance back you can see there isn't
+anything to the right of a class for ruby to check inside.
 
 ## more lies?!
 
@@ -270,8 +274,8 @@ end
 ```
 
 What `class << self` is doing here is opening up the singleton class of the
-class you're in so you can define methods directly in there instead of needing
-to define them on the object directly.
+class you're in so you can define methods in there instead of needing to define
+them on the object directly.
 
 ## turtles all the way down
 
@@ -328,10 +332,10 @@ And here is a visual representation of that hierarchy
 ## deliciously simple
 
 My explanation in this post about the Ruby Object Model has been a simplified
-one, there are more complex diagrams out there which reveal some more fun like
-all every class's class is `Class`.
+one, there are more complex diagrams out there which reveal some more fun
+information like every class's class is `Class`.
 
-```
+```ruby
 Person.class
 => Class
 Person.class.class
@@ -348,8 +352,7 @@ Here is one such diagram that I've found online
 
 <img src="/assets/img/2020-05-17/object-model.png" class="blog-image"/>
 
-As you can see there is still more for you to learn but everything I've
-mentioned in this post will probably be more than enough for some people. If
-not then get onto your favourite search engine and see what else you can learn.
-
+There is still more out there for you to learn but everything I've mentioned in
+this post will be more than enough for you to have a working knowledge of ruby's
+object model.
 
