@@ -9,20 +9,15 @@ layout: default
     <a href="{{ site.baseurl }}/categories">{{ category }}</a>
     {% endfor %}
   </p> 
+  <p>
+    {% include prev_next.html %}
+  </p>
 
 
   {{ content }}
 </div>
 <div id="post-footer">
-  {% if page.previous %}
-  prev: <a href="{{ page.previous.url }}">{{ page.previous.title }}</a> 
-  {% endif %}
-  {% if page.previous and page.next %}
-  |
-  {% endif %}
-  {% if page.next %}
-  next: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
-  {% endif %}
+  {% include prev_next.html %}
 
   <span class="contact-info"><a href="http://www.twitter.com/skipcloud">@{{ site.twitter_username }}</a></span><br />
 </div>
