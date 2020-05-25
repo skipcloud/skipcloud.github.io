@@ -26,6 +26,13 @@ terminal.
 
 <img src="/assets/img/2020-05-24/asr-tty.png" alt="ASR 33 teletype"
 class="blog-image"/>
+<p class="picture-attribution">By <a
+href="//commons.wikimedia.org/wiki/User:ArnoldReinhold"
+title="User:ArnoldReinhold">ArnoldReinhold</a> - <span class="int-own-work"
+lang="en">Own work</span>, <a
+href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons
+Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a
+href="https://commons.wikimedia.org/w/index.php?curid=31105488">Link</a></p>
 
 ## seeing patterns
 
@@ -149,6 +156,12 @@ the carriage.
 <img src="/assets/img/2020-05-24/particolare-olivetti-lettera-22.png"
 alt="Particolare Lettera 22 with ruler showing a maximum of 87 characters per
 line" class="blog-image"/>
+<p class="picture-attribution">By <a
+href="//commons.wikimedia.org/wiki/User:Pava" title="User:Pava">Pava</a> - <span
+class="int-own-work" lang="en">Own work</span>, <a
+href="https://creativecommons.org/licenses/by-sa/3.0/it/deed.en" title="Creative
+Commons Attribution-Share Alike 3.0 it">CC BY-SA 3.0 it</a>, <a
+href="https://commons.wikimedia.org/w/index.php?curid=17713570">Link</a></p>
 
 Going just off standard paper sizes and the fact machinery was build around this
 standard it's easy to see why it had a profound effect on how computers turned
@@ -167,6 +180,9 @@ this machinery was used during the
 
 <img src="/assets/img/2020-05-24/hollerith-punch-card.jpg"
 alt="An original Hollerith punch card" class="blog-image"/>
+<p class="picture-attribution">By Herman Hollerith - Railroad Gazette, Public
+Domain, <a
+href="https://commons.wikimedia.org/w/index.php?curid=5034979">Link</a></p>
 
 Hollerith had wanted there to be an array of card sizes for a variety of uses
 but said that 3 inches by 5.5 inches "would be sufficient for all ordinary
@@ -197,6 +213,13 @@ using punch cards.
 
 <img src="/assets/img/2020-05-24/ibm-3279.jpg"
 alt="An IBM 3279 computer terminal" class="blog-image"/>
+<p class="picture-attribution">By <a
+href="https://www.wikidata.org/wiki/Special:EntityPage/Q18857750" class="extiw"
+title="d:Special:EntityPage/Q18857750">Retro-Computing Society of Rhode
+Island</a> - <span class="int-own-work" lang="en">Own work</span>, <a
+href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons
+Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a
+href="https://commons.wikimedia.org/w/index.php?curid=7354001">Link</a></p>
 
 The initial terminals for computers dealing with punch cards had an 80 character
 limit per line precisely due to the constraint of the punch card, however this
