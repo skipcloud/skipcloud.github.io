@@ -1,6 +1,6 @@
 ---
 layout: post
-title: default text width
+title: Default Text Width
 date: 2020-05-24 09:47:41+01:00
 categories: [blog]
 tags: ['text width']
