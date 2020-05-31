@@ -12,6 +12,10 @@ the most well known would be `ctrl-c` to stop a script or program, and another
 is `ctrl-z` which suspends a running process (useful if you use Vim and need to use
 the shell for a moment).
 
+Control characters are interesting things and one I feel deserve a blog post
+because there is some history there and the way they work is fascinating to me.
+Let's jump in.
+
 ## a brief history
 
 As is usually the case with computers the history of these control characters
