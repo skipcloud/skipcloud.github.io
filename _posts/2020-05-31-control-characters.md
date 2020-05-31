@@ -77,11 +77,11 @@ Fan favourites such as `CR` (carriage return) and `LF` (line feed) were added. E
 wondered why the enter button on your keyboard is sometimes called return? It's
 because it translates to a 'carriage return', and if you were using a
 teletypewriter it would cause the carriage holding the paper to "return" back
-over to the left, and the 'line feed' would move the paper up enough so a new
+to its original position, and the 'line feed' would move the paper up enough so a new
 sentence could start.
 
 Murray also added a `BEL` (bell) code which would ring a physical bell to alert
-the operator, nowadays the character just causes your terminal to make a ding
+the operator, nowadays the `BEL` character just causes your terminal to make a ding
 sound.  It's at this point it's clear to see that these control characters are
 for controlling devices, hence the name.
 
@@ -125,7 +125,7 @@ lowercase `a` is 97 or 61 in hex.
 The reason I'm including the hexadecimal with the decimal is it's slightly
 easier to see what I'm going to point out, `a`'s number is 32 higher than `A`
 and 32 in hexadecimal is 20. The reason this is important is you can get from one
-letter to it's lower/upper version by flipping a single bit.
+letter to it's lower/upper version by flipping the 6th bit.
 
 ```
 1000001 - A
@@ -139,10 +139,10 @@ letter to it's lower/upper version by flipping a single bit.
 ### ASCII chart
 
 There is a man page for ASCII, if you have a look you should find a chart in
-there which looks something like the chart below.  The chart is in two parts, it
-shows the octal, the decimal, and the hexadecimal that represents the character
-which sits in the "Char" column. Two characters and their different base
-representations fit onto a single line.
+there which looks something like the chart below.  The chart shows the octal,
+the decimal, and the hexadecimal that represents the character which sits in the
+"Char" column. Two characters and their different base representations fit onto
+a single line.
 
 ```
  Oct   Dec   Hex   Char                        Oct   Dec   Hex   Char
@@ -216,22 +216,23 @@ Let's take the first example `ctrl-h` and check out the chart
 ```
 
 Cutting the chart down like this shows that there is a relationship between the
-characters that are listed on the same line, somehow an `H` is related to `\b`.
-Looking at the hexadecimal for `H` (48) and the hexadecimal for `\b` (08) you
+characters that are listed on the same line, somehow an `H` is related to `BS`.
+Looking at the hexadecimal for `H` (48) and the hexadecimal for `BS` (08) you
 can see the difference is 40, or 64 in decimal.
 
 64 is a power of 2, so just like our upper case and lower case example before,
-you can get from the character `H` to `\b` by flipping a single bit.
+you can get from the character `H` to `BS` by flipping a single bit, in this
+case the 7th bit instead of the 6th.
 
 ```
 1001000 - H
-0001000 - \b
+0001000 - BS
 ```
 
 I won't go through the hassle of writing the binary out for the other control
-characters but hopefully you can see just flipping a bit gets us from `H` to
-`\b`. In essence when you hold down a control key and hit a key, you are
-removing the bit that represents 64, allowing you to type a control character.
+characters but hopefully you can see just flipping the 7th bit gets us from `H`
+to `BS`. In essence when you hold down a control key and hit a key, you are
+flipping the 7th bit, allowing you to type a control character.
 
 This also explains why, if you open a binary file using vim you will see `^@`
 all over the place. In ASCII `00` represents `NUL`, and its control
@@ -245,8 +246,7 @@ binary file for the ls command open on vim" />
 Computers have a fascinating history! I think that goes without saying, and I
 just love that I can find something that piques my interest and it will take me
 back to the 1800s as I look for answers. This one involved telecommunications
-before it was hip, old character encoding systems, and bit flipping. I'm a
-fucking hoot at parties.
+before it was hip, old character encoding systems, and bit flipping.
 
 ASCII isn't the end of the road when it comes to character encodings by the way,
 there are just too many languages and characters in the world that ASCII was not
