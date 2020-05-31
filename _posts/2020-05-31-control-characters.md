@@ -194,7 +194,7 @@ above see if you can spot the pattern.
 * `ctrl-m` is the same as hitting the return key
 * `ctrl-j` is the same as hitting the enter key
 * `ctrl-i` is the same as hitting the tab key
-* `ctrl-d` can be used to signal end of a input
+* `ctrl-d` can be used to signal end of input
 
 These examples can be used on the command line or in vim, I'm sure you can use
 them in other places but those two places are where I spend most of my time on a
