@@ -363,10 +363,10 @@ my_lambda = lambda {|arg1, arg2, arg3| "hello"}
 my_lambda.call
 # => ArgumentError: wrong number of arguments (given 0, expected 3)
 #    from (pry):97:in 'block in __pry__'
->> my_lambda.call 1,2,3,4
+my_lambda.call 1,2,3,4
 # => ArgumentError: wrong number of arguments (given 4, expected 3)
 #    from (pry):97:in 'block in __pry__'
->> my_lambda.call 1,2,3
+my_lambda.call 1,2,3
 # => "hello"
 ```
 
