@@ -8,18 +8,17 @@ tags: [ruby, blocks, procs, lambdas]
 
 You can't talk about ruby without covering blocks, when you start out you are
 introduced to them from the get-go. Procs and lambdas, however, aren't mentioned
-which is understandable because you can get away with writing ruby without ever
-really knowing what they are.
+when you're starting to learn ruby which is understandable because you can get
+away with writing ruby without ever really knowing what they are.
 
 I am here to throw a ton of information about blocks, procs, and lambdas at you
 as well as a generous helping of code examples, let's see what sticks.
 
 ## blocks
 
-Let's start off with blocks, you can't write ruby without coming across them at
-some point. A block in ruby is a section of code you can pass to a method to be
-called later, a block can be written in two different ways. The multi-line `do
-end` version:
+Let's start off with blocks. A block in ruby is a section of code you can pass
+to a method to be called later, a block can be written in two different ways.
+The multi-line `do end` version:
 
 ```ruby
 3.times do
@@ -73,8 +72,8 @@ do_thing("skip") {|var| var}
 ```
 
 Notice that I had to include parentheses when calling `:do_thing`, leaving them
-out is a syntax error. If you used a multi-line `do end` block instead you can leave off
-the parentheses.
+out is a syntax error. If a multi-line `do end` block is used instead you can
+leave off the parentheses.
 
 ```ruby
 do_thing "skip" do |var|
@@ -119,7 +118,7 @@ call_block {|var| var}
 
 Instead of storing the block in a variable to call manually there is also the
 `yield` keyword that will call a block that was provided when the method is
-called. A block saved in a variable is called an explicit block whereas a call
+called. A block saved in a variable is called an explicit block whereas a block
 called with `yield` is known as an implicit block. As with the other examples
 you can pass arguments to `yield` which are then passed on to the block.
 
@@ -233,20 +232,23 @@ arr.map {|word| word.upcase}
 ```
 
 There is a much more compact syntax that you can use which involves the
-ampersand and symbols. I'll demonstrate by re-writing the previous code
+ampersand and ruby symbols. I'll demonstrate by re-writing the previous code
 
 ```ruby
 arr.map(&:upcase)
 # => ["HI", "THERE"]
 ```
 
-The `&:upcase` is just a fancy way of calling `:to_proc` on the symbol, so
-`&:upcase` is exactly the same as `:upcase.to_proc`. It's worth noting that the
-ampersand syntax only works in relation to a method call, you'd need to use
-`:to_proc` if you want to convert a symbol to a proc and store it in a variable.
+`&:upcase` is just a fancy way of calling `:to_proc` on the symbol, so
+`&:upcase` is similar to `:upcase.to_proc`. It's worth noting that the
+ampersand syntax only works in relation to a method call, and you cannot use
+`:to_proc` with a method call. To put it simply:
 
-Here is a recreation of what's happening under the hood to really take the magic
-out of the syntax.
+* Use `&` during a method call
+* Use `:to_proc` if you want to store the resulting proc in a variable
+
+Here is a recreation of what's happening under the hood when using `&` with a
+symbol to really take the magic out of the syntax.
 
 ```ruby
 class Symbol
@@ -258,9 +260,9 @@ end
 
 ## other classes
 
-`Symbol` isn't the only class in ruby that has a `:to_proc` defined, for example
-`Hash` has a `:to_proc` method defined and it can be used to quickly look up
-multiple keys.
+`Symbol` isn't the only class in ruby that has a `:to_proc` method defined, for
+example `Hash` has a `:to_proc` method defined and it can be used to quickly
+look up multiple keys.
 
 ```ruby
 fav_foods = {
@@ -298,7 +300,7 @@ people.map(&Person)
 # => ["person 0", "person 1", "person 2"]
 ```
 
-I could've simply written `people.map(&:name)` instead but at this way you can
+I could've simply written `people.map(&:name)` instead but this way you can
 see how it all fits together.
 
 ## lambdas
@@ -343,8 +345,8 @@ There are two main differences between a proc and a lambda and those are:
 
 To put it simply, a proc doesn't care about the number of arguments you pass it.
 You can pass too many, just the right amount, or too few. As long as you aren't
-doing something in your proc that requires these arguments, for example calling
-a method on the argument, then everything will run smoothly.
+doing something in your proc that requires these missing arguments, for example
+calling a method on the argument, then everything will run smoothly.
 
 ```ruby
 my_proc = proc {|arg1, arg2, arg3| "hello"}
@@ -354,7 +356,7 @@ my_proc.call
 
 A lambda on the other hand gets incredibly pissy when you don't provide exactly
 what it expects when it comes to the number of arguments. In that respect it's
-much closer to a method that a proc.
+much closer to a method than a proc is.
 
 ```ruby
 my_lambda = lambda {|arg1, arg2, arg3| "hello"}
