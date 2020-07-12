@@ -154,7 +154,7 @@ for each line, if you see the word pizza in it I would like to print the line.
 
 Does this functionality seem familiar? If we shorten "regular expression" down
 to "re" then you get `g/re/p`. This was so handy Ken Thompson pulled it out of
-`ed` and made it a dedicated command for search for text in files and called it
+`ed` and made it a dedicated command for searching for text in files and called it
 `grep`.
 
 ### some edits
@@ -187,10 +187,10 @@ line.
 `a` means "append", so we add a new line to the end of the buffer and as usual a
 dot on its own means we are finished inputting our text. Then the next line we
 make use of the incredibly useful `s` command which is used for substitutions.
-`1,$s/pizza/pie/g` means from line `1` to the end of the buffer ($) I want to
+`1,$s/pizza/pie/g` means from line `1` to the end of the buffer (`$`) I want to
 `s`ubstitute the regular expression `pizza` with the text `pie`, I've tacked on
 a `g` at the end which again means global but because `s` works on single lines
-`g` in this context means for every instance of `pizza` found on the line,
+`g` in this context means change every instance of `pizza` found on the line,
 otherwise only the first occurrence of "pizza" would be affected.
 
 ## fuck me that was effort
@@ -216,7 +216,8 @@ Someone who certainly felt the same way about `ed` was a guy called [George
 Coulouris](https://en.wikipedia.org/wiki/George_Coulouris_%28computer_scientist%29),
 in the autumn of 1975 he extended `ed` enabling his new software to make use of
 these fancy new video terminals that the university he was attending had
-recently acquired.
+recently acquired. `em` would allow you to see parts of the file you were
+editing.
 
 He named his creation `em` which is short for `ed for mortals`. Apparently Ken
 Thompson had visited George's university once when George was developing `em` and
