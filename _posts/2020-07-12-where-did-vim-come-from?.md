@@ -107,14 +107,35 @@ circular food clearly came from the heavens
 pizza is the bomb
 ```
 
+I'll also split the input/output into smaller sections to talk about it as we
+go, it's easier to follow that way.
+
 ### viewing lines
 
 ```
 Δ ed food
 133
 P
+```
+
+I start `ed` by giving it the name of the file I want to edit and it loads it
+into a buffer for me then tells me there's 133 characters. I use the `P` command
+to turn on the prompt which adds an asterisk so you can see which lines are
+command prompts and which are output from `ed`.
+
+```
 *.=
 4
+```
+
+When you load up a buffer you are placed at the final line and your current line
+can be referred to by a dot, so any command that expects a line number will also
+accept a dot (the last line is represented by `$`). The `=` command prints out
+the line number so I run `.=` to show you our current position is at the end of
+the buffer.
+
+
+```
 *1
 dear god I love pizza
 *3
@@ -123,29 +144,19 @@ circular food clearly came from the heavens
 dear god I love pizza
 is there anything more joyous than melted cheese
 circular food clearly came from the heavens
-*g/pizza/p
-dear god I love pizza
-pizza is the bomb
-*q
-Δ
 ```
-
-Okay so that is a bit of a mess but let's untangle it, I start `ed` by giving it
-the name of the file I want to edit and it loads it into a buffer for me then
-tells me there's 133 characters. I use the `P` command to turn on the prompt
-which adds an asterisk so you can see which lines are command prompts and which
-are output from `ed`.
-
-When you load up a buffer you are placed at the final line and your current line
-can be referred to by a dot, so any command that expects a line number will also
-accept a dot (the last line is represented by `$`). The `=` command prints out
-the line number so I run `.=` to show you our current position is at the end of
-the buffer.
 
 Entering a number and hitting enter will move you to that line and print it
 because `p` (print) is the default command, so if no command is specified then
 it'll assume `p`. I show you lines `1` and `3`, then I print a range of lines with
 the `m,n` syntax. `m` being the first line through to `n` inclusive.
+
+
+```
+*g/pizza/p
+dear god I love pizza
+pizza is the bomb
+```
 
 The `g/pizza/p` command is made up of `g`, `/pizza/`, and `p`. The `g` command
 means globally do something (i.e. for each line), then the text between the
@@ -157,6 +168,13 @@ to "re" then you get `g/re/p`. This was so handy Ken Thompson pulled it out of
 `ed` and made it a dedicated command for searching for text in files and called it
 `grep`.
 
+```
+*q
+Δ
+```
+
+And for the sake of completion I exit `ed` with the `q` command.
+
 ### some edits
 
 To wrap up this detour I'll quickly show some edits.
@@ -167,9 +185,23 @@ To wrap up this detour I'll quickly show some edits.
 P
 *n
 4       pizza is the bomb
+```
+
+As usual we fire up `ed` and it graciously tells us the character count, then
+whack it in prompt mode to help differentiate the input/output. `n` will print
+out the line with the line number and it defaults to `.n` which is your current
+line.
+
+```
 *a
 too much probably isn't a great idea though
 .
+```
+
+`a` means "append", so we add a new line to the end of the buffer and as usual a
+dot on its own means we are finished inputting our text.
+
+```
 *1,$s/pizza/pie/g
 *1,$p
 dear god I love pie
@@ -179,19 +211,13 @@ pie is the bomb
 too much probably isn't a great idea though
 ```
 
-As usual we fire up `ed` and it graciously tells us the character count, then
-whack it in prompt mode to help differentiate the input/output. `n` will print
-out the line with the line number and it defaults to `.n` which is your current
-line.
-
-`a` means "append", so we add a new line to the end of the buffer and as usual a
-dot on its own means we are finished inputting our text. Then the next line we
-make use of the incredibly useful `s` command which is used for substitutions.
-`1,$s/pizza/pie/g` means from line `1` to the end of the buffer (`$`) I want to
-`s`ubstitute the regular expression `pizza` with the text `pie`, I've tacked on
-a `g` at the end which again means global but because `s` works on single lines
-`g` in this context means change every instance of `pizza` found on the line,
-otherwise only the first occurrence of "pizza" would be affected.
+Then the next line we make use of the incredibly useful `s` command which is
+used for substitutions.  `1,$s/pizza/pie/g` means from line `1` to the end of
+the buffer (`$`) I want to `s`ubstitute the regular expression `pizza` with the
+text `pie`. I've tacked on a `g` at the end which again means global but, because
+`s` works on single lines, `g` in this context means change every instance of
+`pizza` found on the line, otherwise only the first occurrence of "pizza" would
+be affected.
 
 ## fuck me that was effort
 
