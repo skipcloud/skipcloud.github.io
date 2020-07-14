@@ -121,3 +121,8 @@ ul {
   overflow: auto;
 }
 
+#pgp-key {
+  font-family: 'Space Mono', monospace;
+  white-space: pre;
+  text-align: center;
+}
