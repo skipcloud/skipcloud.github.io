@@ -4,3 +4,5 @@
   url: /blog
 - name: music
   url: https://skipcloud.bandcamp.com/ 
+- name: pgp key
+  url: /pgp
