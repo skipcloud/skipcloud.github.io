@@ -8,7 +8,7 @@ h1: blog
   <p>Words and such that people who write software can relate to.</p>
   <p>Check out the <a href="{{ site.baseurl}}/blog/all">blog index</a> if you're looking for something inparticular, otherwise...</p>
   <h2>latest posts</h2>
-    {% for post in site.posts limit:15 %}
+    {% for post in site.posts limit:5 %}
       <div>
         <div>
           <a class="latest-blog-title" href="{{ post.url }}">{{ post.title }}</a>
