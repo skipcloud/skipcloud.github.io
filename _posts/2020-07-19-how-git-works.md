@@ -361,7 +361,7 @@ tree
 100644 blob 5e86ca0a991775dcf29e69570198b4c7de889214    my_second_file.txt
 ```
 
-A tree object is quite simple, it says "in the root of the project we have two files, and
+This tree object is quite simple, it says "in the root of the project we have two files, and
 here are the hashes of blob objects, here are the file names along with the file
 permissions".
 
@@ -448,7 +448,7 @@ Initial commit
 
 The commit object points to the tree object `da77a5` and stores some information
 on who created the commit, the time they created it, and a nice message telling
-us what change is.
+us what the change is.
 
 ## how far we've come
 
@@ -456,7 +456,7 @@ Before I continue let's just recap what we have managed to achieve using only
 plumbing commands:
 - created blob objects
 - updated our index
-- created a tree object that references the blob objects
+- created a tree object that references blob and tree objects
 - created a commit object that references the tree object
 
 This pretty much what happens when we run:
@@ -479,11 +479,11 @@ I'll come back to `HEAD` and branches later.
 Commit objects usually point to their "parents" which are of course also commit
 objects, this effectively lets us walk backwards through commit objects
 viewing the state of the project as it looked at that moment in time. You can
-think of a commit object as a snapshot of the history.
+think of a commit object as a snapshot of the project file system.
 
 Let's add a new file to our project and generate a new commit object, except
-this time we will specify commit `86eb47` as the parent of the new commit
-using the `-p` option.
+this time we will specify the previous commit `86eb47` as the parent of the new
+commit using the `-p` option.
 
 ```
 /tmp/example [master] » vim README.md
