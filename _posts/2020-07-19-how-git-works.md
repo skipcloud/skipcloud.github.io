@@ -669,9 +669,9 @@ I'll update the diagram from before to include this new branch.
 <img src="/assets/img/2020-07-19/dev-branch.png" class="blog-image" alt="The
 state of our object store accessible from the dev branch and HEAD" />
 
-Let's then do some work on this new branch, and seeing as I have been through
-the process of adding files and creating new references with plumbing commands
-I'll use porcelain commands to create a new commit.
+Let's then do some work on this new branch, let's edit `new_file.txt` and seeing
+as I have been through the process of adding files and creating new references
+with plumbing commands I'll use porcelain commands to quickly create a new commit.
 
 ```
 /tmp/example [dev] » vim new_file.txt
@@ -707,7 +707,9 @@ If you would like to see what commit a branch points to you can use the
 c0baa27f61e6691a54a1bfcd648dc81995d77c3d
 ```
 
-And this is the current state of our project:
+And here is the current state of our project, note the two versions of
+`new_file.txt`. The new one is only referenced by the latest commit whilst the
+old one is referenced by older commits.
 
 <img src="/assets/img/2020-07-19/new-dev-commit.png" class="blog-image" alt="The
 state of our object store accessible from the dev branch and HEAD" />
