@@ -77,7 +77,7 @@ is some sort of container management system, in the case of Docker this would be
 a Docker daemon which is responsible for managing the containers on the server.
 
 You will notice that there are no guest operating systems in this diagram,
-containers contain the files from it's base image, which is usually a Linux
+containers contain the files from its base image, which is usually a Linux
 distribution. This means any system calls that the container needs to make can
 be handled by the host's Linux kernel.
 
@@ -126,7 +126,7 @@ as a tarball.
 Seeing as a tarball is just a file, I can upload it to the internet, send it to
 a friend, or put it on a server. This is basically all a container is and
 creating this tarbar is what the command `docker build` does. Also, because a
-container has it's own file system it can run completely different operating
+container has its own file system it can run completely different operating
 system distributions, the host might be running Debian whilst some containers
 are running [Alpine Linux](https://en.wikipedia.org/wiki/Alpine_Linux) whilst
 other containers are running [CentOS](https://en.wikipedia.org/wiki/CentOS),
@@ -187,7 +187,7 @@ and cgroups.
 
 Then in 2013 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) was
 unleashed onto the world and container popularity exploded. Docker originally
-used LXC in the early years but slowly transitioned to it's own container
+used LXC in the early years but slowly transitioned to its own container
 management library. The reason Docker had such a big impact is because it was an
 entire ecosystem, which included a place you could store your container images:
 [dockerhub.com](https://hub.docker.com/).
@@ -408,9 +408,9 @@ still see the process IDs of its children.
 Here we see the original `sudo` command has PID `131119`, then next we see the
 `unshare` command that `sudo` ran for us, then finally at the end we see our
 `bash` process. This is an important thing to understand about PID namespaces, a
-parent process can see it's child processes, but sibling processes won't know
+parent process can see its child processes, but sibling processes won't know
 about each other if they are in separate namespaces, and children cannot see
-it's parents namespace. In other words the host can see everything but the
+its parents namespace. In other words the host can see everything but the
 children are blind.
 
 And to show that the new contained `bash` process is in its own namespace we can look at
@@ -865,7 +865,7 @@ underlying file system. With `pivot_root` you can move the process to a new root
 directory then unmount the old file system completely cutting the container off
 from the host.
 
-A container will also have it's `capabilities(7)` altered, these are permissions
+A container will also have its `capabilities(7)` altered, these are permissions
 that a user must have before the kernel will do anything. All `root` users have
 some set of these capabilities, such as `CAP_SYS_ADMIN`, and without the correct
 capabilities the kernel will just flat out refuse to do whatever is asked of it.
