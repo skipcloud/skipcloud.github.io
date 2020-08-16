@@ -17,10 +17,10 @@ write the following in ruby and everything just works out.
 
 ```ruby
 %w{hi there}.each.map {|word| word.upcase}
-# => ["Hi", "There"]
+# => ["HI", "THERE"]
 
 %w{hi there}.map.each {|word| word.upcase}
-# => ["Hi", "There"]
+# => ["HI", "THERE"]
 ```
 
 The result of both of these lines is exactly the same so why bother letting the
@@ -31,7 +31,7 @@ following in ruby and not know why it works.
 
 ```ruby
 %w{hi there}.each.map.select.map.reject.map {|word| word.upcase}
-# => ["Hi", "There"]
+# => ["HI", "THERE"]
 ```
 
 To understand what the hell is going on I would need to show you a class called
