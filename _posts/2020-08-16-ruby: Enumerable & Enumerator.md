@@ -56,7 +56,7 @@ later.
 
 ### each
 
-If you've used ruby for more than 3 seconds you will have encounter the `:each`
+If you've used ruby for more than 3 seconds you will have encountered the `:each`
 method, probably when tinkering with an array. It's a simple little method that
 will iterate over a collection and yield to the block passing in each element of
 the collection in turn. The return value of `:each` is the original array.
