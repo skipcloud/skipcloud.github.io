@@ -7,7 +7,7 @@ tags: ['character encodings', ASCII, Unicode]
 ---
 
 I sat down a few weeks ago to write a _small_ blog post on what the UTF
-encodings are, I mainly wanted to talk why UTF-8 is the most
+encodings are, I mainly wanted to talk about why UTF-8 is the most
 common encoding on the internet and also how it worked but after a couple of
 minutes I felt it would be good to also explain what ASCII is because it's
 interesting in its own right and understanding its story would help people
