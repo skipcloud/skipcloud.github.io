@@ -11,7 +11,7 @@ encodings are, I mainly wanted to talk about why UTF-8 is the most
 common encoding on the internet and also how it worked but after a couple of
 minutes I felt it would be good to also explain what ASCII is because it's
 interesting in its own right and understanding its story would help people
-appreciate the job that Unicode solves.
+appreciate the problem that Unicode solves.
 
 I then thought that a primer on what came before ASCII would be interesting too
 because ASCII was created to solve some problems, a few hours of research
