@@ -701,8 +701,8 @@ others. Multiple encodings wasn't just a Western problem.
 
 #### ISO-8859
 
-With so many different variants of ASCII floating around there became a need for
-everyone to agree on some sort of standard, this fell to the [International
+With so many different variants of 8-bit ASCII floating around there became a need for
+everyone to agree on some sort of standard again, this fell to the [International
 Organization for Standardization
 (ISO)](https://en.wikipedia.org/wiki/International_Organization_for_Standardization)
 and [International Electrotechnical Commission
@@ -808,7 +808,7 @@ Here is a succinct breakdown.
 
 * numbers - single hole: `[0-9]`
 * letters - two holes: `[0, 11, 12] + [0-9]`
-* special characters: `[0, 11, 12, none] + [2-7] + 8`
+* special characters - two/three holes: `[0, 11, 12, none] + [2-7] + 8`
 
 Card integrity was pretty important so the code was designed so holes weren't
 too close together, this had a direct impact on the binary encoding of this data
@@ -817,10 +817,12 @@ too.
 #### BCD
 
 BCD was created as an efficient means for storing this "zone" and "number" punch
-card data as a 6-bit binary code. Numbers were encoded in the lower four bits
-(also known as a nibble), and the three special zones 0, 11 and 12 were the
-higher two bits. BCD codes were not standardised so they varied from
-manufacturer to manufacturer, even between products from the same manufacturer.
+card data as a 6-bit binary code. With 6 bits you can encode up to 32 characters
+(2^5). Numbers 1-9 were encoded in the lower four bits (also known as a nibble),
+and the three special zones 0, 11 and 12 were the higher two bits. BCD codes
+were not standardised so they varied from manufacturer to manufacturer, even
+between products from the same manufacturer. I'm going to be using an IBM
+variant in this post.
 
 For example to encode some numbers just use the lower bits as normal:
 
@@ -842,8 +844,8 @@ To encode 0, 11, or 12 you need some combination of the higher bits:
   30   11 0000 - zone 12
 ```
 
-So if the letter A has the holes 12 and 1 punched in a card it would have the
-following binary representation:
+So if the letter A is represented by the holes 12 and 1 punched in a card it
+would have the following binary representation:
 
 ```
  Char | Hex | Binary
@@ -859,7 +861,8 @@ created.
 As I mentioned EBCDIC was developed around the same time as ASCII, what's weird
 is IBM was a big proponent of the ASCII standardisation committee, but the
 company didn't have time to create ASCII peripherals such as punch card machines
-for use with their System 360 computers, this is what gave rise to EBCDIC.
+for use with their System 360 computers, this is what gave rise to EBCDIC. Like
+ASCII EBCDIC could represent a total of 256 characters (2^8).
 
 Their System 360 computer range ended up becoming very popular and thus so did
 EBCDIC.
@@ -1136,10 +1139,10 @@ No. bytes | Codepoints |  Byte 1  |  Byte 2  |  Byte 3  |  Byte 4
 ```
 
 The code points in the gap between `U+D7FF` and `U+E000` are called [high
-surrogates](https://unicode-table.com/en/blocks/high-surrogates/) and using them
-in the basically allows you to address characters outside of the Basic
-Multilingual Plane, in other words a value falling in this range lets a decoder
-know that a further 2 bytes should be read making it a 4 byte sequence.
+surrogates](https://unicode-table.com/en/blocks/high-surrogates/) and they
+basically allow you to address characters outside of the Basic Multilingual
+Plane, in other words a value falling in this range lets a decoder know that a
+further 2 bytes should be read making it a 4 byte sequence.
 
 The Unicode standard permanently reserved the code points `U+D800` to `U+DFFF`
 specifically for encoding surrogates and as such they will never be assigned a
@@ -1202,7 +1205,7 @@ Endian stores bytes with lowest order byte first.
 For example the number `0x1234` would be stored `0x12, 0x34` in Big Endian
 systems and Little Endian systems would store it `0x34, 0x12`.
 
-To help with understanding the byte order UTF-16 allows a [Byte Order
+To help with understanding the byte order of a file UTF-16 allows a [Byte Order
 Mark](https://en.wikipedia.org/wiki/Byte_order_mark), the code point `U+FEFF` is
 used for this and it needs to come right at the start of the file. The code
 point is for an invisible zero-width non-breaking space.
@@ -1233,7 +1236,9 @@ character can be anywhere from 1 byte to 4 bytes, or 8 bits up to 32 bits.
 However not all of those bits are used to encode characters, being a
 variable-width encoding some of the bits are used to show just how many bytes
 make up the character. As you will see in a moment this allows UTF-8 to encode
-up to 21-bit values, or `U+000000` to `U+10FFFF`.
+up to 21-bit values, or `U+000000` to `U+10FFFF`. `U+10FFFF` being the highest
+code point allowed in Unicode, thus UTF-8 can comfortably represent all
+characters.
 
 The ASCII set laid out in ISO-8859-1 (Latin-1) is encoded with a single byte in
 UTF-8, nice and easy so far. This helps with backwards compatibility.
@@ -1256,7 +1261,7 @@ No. bytes |  Byte 1  |  Byte 2
 ```
 
 The beginning of the first byte indicates how many bytes are to follow, a `110`
-means this is a 2 byte sequence and the first two bits in byte two `10` show
+means this is a 2 byte sequence and the first 2 bits in byte two `10` show
 that this is a continuation byte.
 
 With 2 bytes you can represent another 1,920 characters which covers nearly all
@@ -1294,7 +1299,7 @@ No. bytes |  Byte 1  |  Byte 2  |  Byte 3  |  Byte 4
 
 With 4 bytes we can represent the code points `U+10000` to `U+10FFFF`, the first 5
 bits of the first byte showing how many bytes are in this sequence and the
-following 3 bytes starting with `10` which is to be expected at this point.
+following 3 bytes start with `10` which is to be expected at this point.
 
 With 4 bytes we can represent less common Chinese, Japanese, and Korean
 characters as well as mathematical symbols, historic scripts, and emojis.
@@ -1349,17 +1354,17 @@ point.
 
 #### byte order mark
 
-Given what we know about UTF-16 and it's Byte Order Mark it makes sense that
+Given what we know about UTF-16 and its Byte Order Mark it makes sense that
 UTF-8 should have one right? Sort of.
-
-Because `U+FEFF` is a 2 byte code point it's going to result in a 3 byte
-encoding in UTF-8, feel free to work it out but I'm going to use one I made
-earlier: `0xEFBBBF`.
 
 The Unicode standard actually doesn't require a Byte Order Mark for UTF-8 in
 fact it goes as far as not recommending using one at all, ASCII encoded using
 UTF-8 is backwards compatible but when a Byte Order Mark is added this can cause
 some problems.
+
+If you were to insert one then because `U+FEFF` is a 2 byte code point it's
+going to result in a 3 byte encoding in UTF-8, feel free to work it out but I'm
+going to use one I made earlier: `0xEFBBBF`.
 
 ### UTF-32
 
