@@ -440,8 +440,8 @@ Let's look inside the commit that was just created.
 ```
 /tmp/example [master] » git cat-file -p 86eb47
 tree da77a56b7a85f94f957b97ba3bc10e089e3daea0
-author Skip Gibson <skipcloudgibson@gmail.com> 1595067822 +0100
-committer Skip Gibson <skipcloudgibson@gmail.com> 1595067822 +0100
+author Skip Gibson <skip@skipgibson.dev> 1595067822 +0100
+committer Skip Gibson <skip@skipgibson.dev> 1595067822 +0100
 
 Initial commit
 ```
@@ -503,8 +503,8 @@ of this new commit object.
 /tmp/example [master] » git cat-file -p 086a49
 tree 862d1dff20b9783d304b6188999f8a01bdab2956
 parent 86eb4733b913aadb7929c8b3c9f5dae7340e2341
-author Skip Gibson <skipcloudgibson@gmail.com> 1595069781 +0100
-committer Skip Gibson <skipcloudgibson@gmail.com> 1595069781 +0100
+author Skip Gibson <skip@skipgibson.dev> 1595069781 +0100
+committer Skip Gibson <skip@skipgibson.dev> 1595069781 +0100
 
 Second commit
 ```
@@ -531,13 +531,13 @@ Seeing as we now have a small chain of commits we can view them with `git log <c
 ```
 /tmp/example [master] » git --no-pager log 086a49
 commit 086a49350403eb04f3bdddc6e122f5125305da94
-Author: Skip Gibson <skipcloudgibson@gmail.com>
+Author: Skip Gibson <skip@skipgibson.dev>
 Date:   Sat Jul 18 11:56:21 2020 +0100
 
     Second commit
 
 commit 86eb4733b913aadb7929c8b3c9f5dae7340e2341
-Author: Skip Gibson <skipcloudgibson@gmail.com>
+Author: Skip Gibson <skip@skipgibson.dev>
 Date:   Sat Jul 18 11:23:42 2020 +0100
 
     Initial commit
@@ -693,8 +693,8 @@ the latest commit object. `HEAD` -> `refs/heads/dev` -> commit hash.
 /tmp/example [dev] » git cat-file -p HEAD
 tree 83fa36cec1ec042e517cf95609830f4eaff8ce62
 parent 086a49350403eb04f3bdddc6e122f5125305da94
-author Skip Gibson <skipcloudgibson@gmail.com> 1595075640 +0100
-committer Skip Gibson <skipcloudgibson@gmail.com> 1595075640 +0100
+author Skip Gibson <skip@skipgibson.dev> 1595075640 +0100
+committer Skip Gibson <skip@skipgibson.dev> 1595075640 +0100
 
 important work
 ```

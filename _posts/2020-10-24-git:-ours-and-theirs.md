@@ -53,7 +53,7 @@ same file. Here is the change `master` has made:
 
 ```diff
 commit 47e7876df1a535e94fd86faea6f59bfb979b1358 (HEAD -> master)
-Author: Skip Gibson <skipcloudgibson@gmail.com>
+Author: Skip Gibson <skip@skipgibson.dev>
 Date:   Sat Oct 24 07:45:07 2020 +0100
 
     B
@@ -76,7 +76,7 @@ alters `my_file`:
 
 ```diff
 commit aae7bc9137098b8338170a81855c12624f7ae3ec (HEAD -> dev)
-Author: Skip Gibson <skipcloudgibson@gmail.com>
+Author: Skip Gibson <skip@skipgibson.dev>
 Date:   Sun Oct 25 07:27:48 2020 +0000
 
     D
@@ -90,7 +90,7 @@ index 97a576e..10401a3 100644
 +change D
 
 commit 4e6889592e3718229ed227f5d1da58ad802daba6
-Author: Skip Gibson <skipcloudgibson@gmail.com>
+Author: Skip Gibson <skip@skipgibson.dev>
 Date:   Sun Oct 25 07:27:24 2020 +0000
 
     C

@@ -331,7 +331,7 @@ information in there that isn't present in a normal commit.
 ∵ git --no-pager show -1
 commit a1398c6825c2e1dddf781e0f8f49423ae144e56a (HEAD -> master)
 Merge: 099890b acacc56
-Author: Skip Gibson <skipcloudgibson@gmail.com>
+Author: Skip Gibson <skip@skipgibson.dev>
 Date:   Sat Oct 3 13:14:20 2020 +0100
 
     G
