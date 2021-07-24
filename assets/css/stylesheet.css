@@ -24,7 +24,7 @@ h1 {
   text-align: center;
 }
 
-img#ugh {
+#home-photo img {
   display: block;
   width: 400px;
   margin: auto;
@@ -70,6 +70,19 @@ p code, .highlighter-rouge {
 
 #blog-container {
   text-align: left;
+}
+
+#latest-posts {
+  width: 60%;
+  display: inline-block;
+  float: left;
+}
+
+#all-posts {
+  width: 40%;
+  display: inline-block;
+  float: right;
+  font-size: 85%;
 }
 
 ul {

@@ -6,9 +6,10 @@
     <link href='https://fonts.googleapis.com/css?family=Space Mono' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/css/stylesheet.css" >
+    <script src="/js/photo.js"></script>
     <title>skip gibson</title>
   </head>
-  <body>
+  <body onload="loadHomePhoto()">
     {% include header.html %}
     {% if page.h1 %}
       <h1>{{ page.h1 }}</h1>
