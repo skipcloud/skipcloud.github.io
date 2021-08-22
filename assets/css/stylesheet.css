@@ -44,6 +44,10 @@ a {
   color: #FF40B3;
 }
 
+a#current-page {
+  color: #8d6ace;
+}
+
 blockquote {
   font-style: italic;
 }
@@ -87,6 +91,10 @@ p code, .highlighter-rouge {
 
 ul {
   list-style: none;
+}
+
+ul#visable-list {
+  list-style: lower-roman;
 }
 
 .latest-blog-title {

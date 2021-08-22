@@ -25,12 +25,19 @@ h1: blog
   <ul>
     {% for post in site.posts %}
     <li>
+      <time datetime="{{ post.date | date: "%Y-%m-%d"  }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      - 
       <a href="{{ post.url  }}">
-        {{ post.title  }}
+        {% assign titlesize = post.title | size | interger %}
+        {% if titlesize < 25 %}
+          {{ post.title }}
+        {% else %}
+          {{ post.title | slice: 0,25 }}...
+        {% endif %}
       </a>
-      - <time datetime="{{ post.date | date: "%Y-%m-%d"  }}">{{ post.date | date_to_long_string  }}</time>
     </li>
     {% endfor %}
   </ul>
   </div>
 </div>
+
