@@ -550,7 +550,7 @@ problem](https://en.wikipedia.org/wiki/Discrete_logarithm).
 ### what could they do then?
 
 Someone listening has access to the generator, the modulus, as well as the two
-calculated pre-secrets. Could they someone how use these values to get to the
+calculated pre-secrets. Could they somehow use these values to get to the
 right answer? I mean, based on the previous section we know they cannot but it's
 good to understand why.
 
